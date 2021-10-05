@@ -32,7 +32,7 @@ RUN yum upgrade -y                               && \
                            --user wheel          && \
     python3 -m pip install --force-reinstall        \
                  --upgrade                          \
-                 --user "ansible-base == 2.11.*" && \
+                 --user "ansible-core == 2.11.*" && \
     rm -rf /root/.cache                             \
            /var/cache/yum
 
