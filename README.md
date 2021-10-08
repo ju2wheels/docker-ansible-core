@@ -8,6 +8,16 @@ being suitable for use as an Ansible host. In addition to the ansibe-core 2.11.x
 dependencies for main common collections installed from PyPi using Python 3.x at the user level instead of at the system level
 so as to minimize conflicts with system Python packages leveraging the system supported versions of Python 3.x .
 
+## WARNING
+
+Ansible 4 supports Python 3.5 or greater, however there is a runtime behavior difference when running with Python 3.5 vs when
+running with Python 3.6 or greater because Jinaja2 3.x only supports Python 3.6 or greater. Therefore if you run Ansible on
+Python 3.5, it will fallback to Jinja2 2.x and cause a different runtime behavior.
+
+We do not recommend using Python 3.5 with Ansible on your controller host (the host that initially runs Ansible).
+
+For some of the Docker images below where the Python 3 system default version was less than 3.6, we have installed Python 3.6
+in addition to the system default and used 3.6 to install Ansible.
 
 ## Available Docker Image Tags
 

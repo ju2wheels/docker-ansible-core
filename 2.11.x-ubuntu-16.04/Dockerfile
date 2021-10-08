@@ -30,7 +30,20 @@ RUN apt-get update                               && \
                        python3-setuptools           \
                        python3-wheel                \
                        rsync                        \
+                       software-properties-common   \
                        sudo                      && \
+    add-apt-repository --update                     \
+                       --yes                        \
+                       ppa:deadsnakes/ppa        && \
+    apt-get update                               && \
+    apt-get --no-install-recommends                 \
+            -y install libpython3.6                 \
+                       libpython3.6-minimal         \
+                       libpython3.6-stdlib          \
+                       python3.6                    \
+                       python3.6-gdbm               \
+                       python3.6-minimal            \
+                       python3.6-venv            && \
     python3 -m pip install --force-reinstall        \
                            --upgrade                \
                            --user 'pip==20.3.4'  && \
@@ -40,7 +53,16 @@ RUN apt-get update                               && \
     python3 -m pip install --force-reinstall        \
                            --upgrade                \
                            --user wheel          && \
-    python3 -m pip install --force-reinstall        \
+    python3.6 -m pip install --force-reinstall      \
+                             --upgrade              \
+                             --user pip          && \
+    python3.6 -m pip install --force-reinstall      \
+                             --upgrade              \
+                             --user setuptools   && \
+    python3.6 -m pip install --force-reinstall      \
+                             --upgrade              \
+                             --user wheel        && \
+    python3.6 -m pip install --force-reinstall      \
                  --upgrade                          \
                  --user "ansible-core == 2.11.*" && \
     rm -rf /root/.cache                             \
