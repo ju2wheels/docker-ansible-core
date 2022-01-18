@@ -26,6 +26,7 @@ The `ju2wheels/ansible-core` Docker image tags follow the naming convention that
 1. The Ansible major version (ie `2.11.x` since we always install the latest minor version).
 2. The Linux distribution name.
 3. The Linux distribution version.
+4. The Docker image platform if other than `linux/amd64`.
 
 |2.11.x Docker Image Tags         |
 |---------------------------------|
@@ -52,7 +53,9 @@ The `ju2wheels/ansible-core` Docker image tags follow the naming convention that
 |2.11.x-opensuse-tumbleweed       |
 |2.11.x-ubuntu-16.04              |
 |2.11.x-ubuntu-18.04              |
+|2.11.x-ubuntu-18.04-arm64        |
 |2.11.x-ubuntu-20.04              |
+|2.11.x-ubuntu-20.04-arm64        |
 
 ## Organization of `Dockerfile`s
 
