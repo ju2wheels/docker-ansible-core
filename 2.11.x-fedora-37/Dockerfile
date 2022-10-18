@@ -1,4 +1,4 @@
-FROM       centos:7
+FROM       fedora:37
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV LANG                    "en_US.UTF-8"
@@ -9,8 +9,8 @@ ENV PYCURL_SSL_LIBRARY      "nss"
 ENV PYTHONDONTWRITEBYTECODE "1"
 ENV PYTHONUNBUFFERED        "1"
 
-RUN yum upgrade -y                               && \
-    yum install -y crontabs                         \
+RUN dnf upgrade -y                               && \
+    dnf install -y crontabs                         \
                    curl                             \
                    dnf                              \
                    git                              \
@@ -18,8 +18,10 @@ RUN yum upgrade -y                               && \
                    openssl                          \
                    python3                          \
                    python3-devel                    \
+                   python3-dnf                      \
                    python3-pip                      \
                    python3-setuptools               \
+                   redhat-rpm-config                \
                    rsync                            \
                    sudo                          && \
     python3 -m pip install --force-reinstall        \
@@ -34,9 +36,8 @@ RUN yum upgrade -y                               && \
     python3 -m pip install --force-reinstall        \
                  --upgrade                          \
                  --user "ansible-core == 2.11.*" && \
-    sed -i 's/tsflags=nodocs//' /etc/yum.conf    && \
     rm -rf /root/.cache                             \
-           /var/cache/yum
+           /var/cache/dnf
 
 CMD        []
 ENTRYPOINT ["ansible-playbook"]

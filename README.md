@@ -16,8 +16,8 @@ Python 3.5, it will fallback to Jinja2 2.x and cause a different runtime behavio
 
 We do not recommend using Python 3.5 with Ansible on your controller host (the host that initially runs Ansible).
 
-For some of the Docker images below where the Python 3 system default version was less than 3.6, we have installed Python 3.6
-in addition to the system default and used 3.6 to install Ansible.
+For the Docker images below, if the Python 3 system default version was less than 3.6, we have installed Python 3.6
+in addition to the system default Python 3 version and used 3.6 to install Ansible.
 
 ## Available Docker Image Tags
 
@@ -28,34 +28,25 @@ The `ju2wheels/ansible-core` Docker image tags follow the naming convention that
 3. The Linux distribution version.
 4. The Docker image platform if other than `linux/amd64`.
 
-|2.11.x Docker Image Tags         |
-|---------------------------------|
-|2.11.x-alpine-3.12               |
-|2.11.x-alpine-3.13               |
-|2.11.x-alpine-3.14               |
-|2.11.x-amazonlinux-2018.03       |
-|2.11.x-amazonlinux-2.0.20210701.0|
-|2.11.x-centos-7                  |
-|2.11.x-centos-8                  |
-|2.11.x-debian-10                 |
-|2.11.x-debian-9                  |
-|2.11.x-fedora-33                 |
-|2.11.x-fedora-34                 |
-|2.11.x-linuxmint-19              |
-|2.11.x-linuxmint-19.1            |
-|2.11.x-linuxmint-19.2            |
-|2.11.x-linuxmint-19.3            |
-|2.11.x-linuxmint-20              |
-|2.11.x-linuxmint-20.1            |
-|2.11.x-linuxmint-20.2            |
-|2.11.x-opensuse-15.2             |
-|2.11.x-opensuse-15.3             |
-|2.11.x-opensuse-tumbleweed       |
-|2.11.x-ubuntu-16.04              |
-|2.11.x-ubuntu-18.04              |
-|2.11.x-ubuntu-18.04-arm64        |
-|2.11.x-ubuntu-20.04              |
-|2.11.x-ubuntu-20.04-arm64        |
+|2.11.x Docker Image Tags  |Platform Architecture      |
+|--------------------------|---------------------------|
+|2.11.x-alpine-3.14        |linux/amd64, linux/arm64/v8|
+|2.11.x-alpine-3.15        |linux/amd64, linux/arm64/v8|
+|2.11.x-alpine-3.16        |linux/amd64, linux/arm64/v8|
+|2.11.x-amazonlinux-2      |linux/amd64, linux/arm64/v8|
+|2.11.x-amazonlinux-2022   |linux/amd64, linux/arm64/v8|
+|2.11.x-debian-10          |linux/amd64, linux/arm64/v8|
+|2.11.x-debian-11          |linux/amd64, linux/arm64/v8|
+|2.11.x-fedora-36          |linux/amd64, linux/arm64/v8|
+|2.11.x-fedora-37          |linux/amd64, linux/arm64/v8|
+|2.11.x-linuxmint-19.3     |linux/amd64                |
+|2.11.x-linuxmint-20.3     |linux/amd64                |
+|2.11.x-linuxmint-21.1     |linux/amd64                |
+|2.11.x-opensuse-15.4      |linux/amd64, linux/arm64/v8|
+|2.11.x-opensuse-tumbleweed|linux/amd64, linux/arm64/v8|
+|2.11.x-ubuntu-18.04       |linux/amd64, linux/arm64/v8|
+|2.11.x-ubuntu-20.04       |linux/amd64, linux/arm64/v8|
+|2.11.x-ubuntu-22.04       |linux/amd64, linux/arm64/v8|
 
 ## Organization of `Dockerfile`s
 
@@ -116,7 +107,6 @@ services:
       #- ./:/ansible-playbook
       - /home/user/ansible-playbook:/ansible-playbook
 ```
-
 
 You can then run `docker-compose`:
 
@@ -329,4 +319,4 @@ GPLv2
 
 ## Author
 
-Julio Lajara \<GH user at Gmail>
+Julio Lajara \<First.Last at Protonmail>

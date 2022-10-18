@@ -1,4 +1,4 @@
-FROM       linuxmintd/mint20.2-amd64
+FROM       debian:11
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV DEBIAN_FRONTEND         "noninteractive"
@@ -26,11 +26,10 @@ RUN apt-get update                               && \
                        python3                      \
                        python3-apt                  \
                        python3-dev                  \
+                       python3-pip                  \
+                       python3-setuptools           \
                        rsync                        \
                        sudo                      && \
-    apt-get --no-install-recommends                 \
-            -y install python3-pip                  \
-                       python3-setuptools        && \
     python3 -m pip install --force-reinstall        \
                            --upgrade                \
                            --user pip            && \

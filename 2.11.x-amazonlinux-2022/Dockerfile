@@ -1,4 +1,4 @@
-FROM       amazonlinux:2018.03
+FROM       amazonlinux:2022
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV LANG                    "en_US.UTF-8"
@@ -9,17 +9,16 @@ ENV PYCURL_SSL_LIBRARY      "nss"
 ENV PYTHONDONTWRITEBYTECODE "1"
 ENV PYTHONUNBUFFERED        "1"
 
-RUN sed -i 's/releasever=latest/#releasever=latest/' /etc/yum.conf && \
-    yum upgrade -y                                                 && \
-    yum install -y crontabs                                           \
-                   curl                                               \
+RUN dnf upgrade -y                                                 && \
+    dnf install -y crontabs                                           \
+                   curl-minimal                                       \
                    git                                                \
-                   gnupg2                                             \
+                   gnupg2-minimal                                     \
                    openssl                                            \
-                   python38                                           \
-                   python38-devel                                     \
-                   python38-pip                                       \
-                   python38-setuptools                                \
+                   python3                                            \
+                   python3-devel                                      \
+                   python3-pip                                        \
+                   python3-setuptools                                 \
                    rsync                                              \
                    sudo                                            && \
     python3 -m pip install --force-reinstall                          \
@@ -35,7 +34,7 @@ RUN sed -i 's/releasever=latest/#releasever=latest/' /etc/yum.conf && \
                  --upgrade                                            \
                  --user "ansible-core == 2.11.*"                   && \
     rm -rf /root/.cache                                               \
-           /var/cache/yum
+           /var/cache/dnf
 
 CMD        []
 ENTRYPOINT ["ansible-playbook"]

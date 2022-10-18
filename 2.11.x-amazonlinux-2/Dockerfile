@@ -1,4 +1,4 @@
-FROM       fedora:34
+FROM       amazonlinux:2
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV LANG                    "en_US.UTF-8"
@@ -9,19 +9,16 @@ ENV PYCURL_SSL_LIBRARY      "nss"
 ENV PYTHONDONTWRITEBYTECODE "1"
 ENV PYTHONUNBUFFERED        "1"
 
-RUN dnf upgrade -y                               && \
-    dnf install -y crontabs                         \
+RUN yum upgrade -y                               && \
+    yum install -y crontabs                         \
                    curl                             \
-                   dnf                              \
                    git                              \
                    gnupg2                           \
                    openssl                          \
                    python3                          \
                    python3-devel                    \
-                   python3-dnf                      \
                    python3-pip                      \
                    python3-setuptools               \
-                   redhat-rpm-config                \
                    rsync                            \
                    sudo                          && \
     python3 -m pip install --force-reinstall        \

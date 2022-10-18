@@ -1,4 +1,4 @@
-FROM       fedora:33
+FROM       rockylinux:9
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV LANG                    "en_US.UTF-8"
@@ -14,6 +14,7 @@ RUN dnf upgrade -y                               && \
                    curl                             \
                    dnf                              \
                    git                              \
+                   glibc-langpack-en                \
                    gnupg2                           \
                    openssl                          \
                    python3                          \
@@ -21,7 +22,6 @@ RUN dnf upgrade -y                               && \
                    python3-dnf                      \
                    python3-pip                      \
                    python3-setuptools               \
-                   redhat-rpm-config                \
                    rsync                            \
                    sudo                          && \
     python3 -m pip install --force-reinstall        \
@@ -37,7 +37,7 @@ RUN dnf upgrade -y                               && \
                  --upgrade                          \
                  --user "ansible-core == 2.11.*" && \
     rm -rf /root/.cache                             \
-           /var/cache/yum
+           /var/cache/dnf
 
 CMD        []
 ENTRYPOINT ["ansible-playbook"]

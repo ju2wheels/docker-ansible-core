@@ -1,4 +1,4 @@
-FROM       alpine:3.12
+FROM       alpine:3.15
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV LANG                    "en_US.UTF-8"
@@ -35,8 +35,8 @@ RUN apk upgrade --latest --update-cache          && \
                             --upgrade               \
                             --user setuptools    && \
     python3 -m pip install --force-reinstall        \
-                            --upgrade               \
-                            --user wheel         && \
+                           --upgrade                \
+                           --user wheel          && \
     python3 -m pip install --force-reinstall        \
                  --upgrade                          \
                  --user "ansible-core == 2.11.*" && \

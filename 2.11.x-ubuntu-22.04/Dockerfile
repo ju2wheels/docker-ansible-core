@@ -1,4 +1,4 @@
-FROM       linuxmintd/mint19-amd64
+FROM       ubuntu:22.04
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV DEBIAN_FRONTEND         "noninteractive"

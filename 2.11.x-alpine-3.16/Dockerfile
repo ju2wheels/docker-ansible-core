@@ -1,4 +1,4 @@
-FROM       alpine:3.13
+FROM       alpine:3.16
 MAINTAINER Julio Lajara <ju2wheels@gmail.com>
 
 ENV LANG                    "en_US.UTF-8"
