@@ -4,7 +4,8 @@
 [ju2wheels/ansible-core](https://hub.docker.com/r/ju2wheels/ansible-core/) Docker Hub images for containers that are capable
 of being used for both unit testing (by running Ansible against the local container as if it were a remote machine) as well as
 being suitable for use as an Ansible host. In addition to the ansibe-core 2.11.x (aka
-[Ansible 4](https://github.com/ansible-community/ansible-build-data/blob/main/4/CHANGELOG-v4.rst) ), these images include some
+[Ansible 4](https://github.com/ansible-community/ansible-build-data/blob/main/4/CHANGELOG-v4.rst) ) or ansibe-core 2.12.x (aka
+[Ansible 5](https://github.com/ansible-community/ansible-build-data/blob/main/5/CHANGELOG-v5.rst) ), these images include some
 dependencies for main common collections installed from PyPi using Python 3.x at the user level instead of at the system level
 so as to minimize conflicts with system Python packages leveraging the system supported versions of Python 3.x .
 
@@ -14,10 +15,15 @@ Ansible 4 supports Python 3.5 or greater, however there is a runtime behavior di
 running with Python 3.6 or greater because Jinaja2 3.x only supports Python 3.6 or greater. Therefore if you run Ansible on
 Python 3.5, it will fallback to Jinja2 2.x and cause a different runtime behavior.
 
-We do not recommend using Python 3.5 with Ansible on your controller host (the host that initially runs Ansible).
+Ansible 5 requires Python 3.8 or greater.
 
-For the Docker images below, if the Python 3 system default version was less than 3.6, we have installed Python 3.6
-in addition to the system default Python 3 version and used 3.6 to install Ansible.
+We do not recommend using Python 3.5 with Ansible 4 on your controller host (the host that initially runs Ansible).
+
+For the Docker images below, if the Python 3 system default version was less than 3.6, we have installed Python 3.6 or newer
+in addition to the system default Python 3 version and used that to install Ansible 4.
+
+For the Docker images below, if the Python 3 system default version was less than 3.8, we have installed Python 3.8 or newer
+in addition to the system default Python 3 version and used that to install Ansible 5.
 
 ## Available Docker Image Tags
 
@@ -47,6 +53,26 @@ The `ju2wheels/ansible-core` Docker image tags follow the naming convention that
 |2.11.x-ubuntu-18.04       |linux/amd64, linux/arm64/v8|
 |2.11.x-ubuntu-20.04       |linux/amd64, linux/arm64/v8|
 |2.11.x-ubuntu-22.04       |linux/amd64, linux/arm64/v8|
+
+|2.12.x Docker Image Tags  |Platform Architecture      |
+|--------------------------|---------------------------|
+|2.12.x-alpine-3.14        |linux/amd64, linux/arm64/v8|
+|2.12.x-alpine-3.15        |linux/amd64, linux/arm64/v8|
+|2.12.x-alpine-3.16        |linux/amd64, linux/arm64/v8|
+|2.12.x-amazonlinux-2      |linux/amd64, linux/arm64/v8|
+|2.12.x-amazonlinux-2022   |linux/amd64, linux/arm64/v8|
+|2.12.x-debian-10          |linux/amd64, linux/arm64/v8|
+|2.12.x-debian-11          |linux/amd64, linux/arm64/v8|
+|2.12.x-fedora-36          |linux/amd64, linux/arm64/v8|
+|2.12.x-fedora-37          |linux/amd64, linux/arm64/v8|
+|2.12.x-linuxmint-19.3     |linux/amd64                |
+|2.12.x-linuxmint-20.3     |linux/amd64                |
+|2.12.x-linuxmint-21.1     |linux/amd64                |
+|2.12.x-opensuse-15.4      |linux/amd64, linux/arm64/v8|
+|2.12.x-opensuse-tumbleweed|linux/amd64, linux/arm64/v8|
+|2.12.x-ubuntu-18.04       |linux/amd64, linux/arm64/v8|
+|2.12.x-ubuntu-20.04       |linux/amd64, linux/arm64/v8|
+|2.12.x-ubuntu-22.04       |linux/amd64, linux/arm64/v8|
 
 ## Organization of `Dockerfile`s
 
@@ -144,7 +170,6 @@ For the following unit test examples, we assume that your Ansible role meets the
     testrole/defaults
     testrole/defaults/main.yml
     testrole/files
-
     ```
 2. The role's tests directory has had an ansible.config and inventory added, and roles directory with a role that is relatively symlinked back to the main role directory,
    and an ansible_requirements.yml file to get needed dependency collections and roles:
