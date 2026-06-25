@@ -39,7 +39,9 @@ RUN apk upgrade --latest --update-cache          && \
                            --user wheel          && \
     python3 -m pip install --force-reinstall        \
                  --upgrade                          \
-                 --user "ansible-core == 2.14.*" && \
+                 --user "ansible-core == 2.14.*"     \
+                        "ansible-lint == 6.22.2"     \
+                        "yamllint == 1.37.1"      && \
     apk del ansible-build-deps                   && \
     rm -rf /root/.cache                             \
            /var/cache/apk/*

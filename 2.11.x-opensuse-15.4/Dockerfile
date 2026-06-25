@@ -14,6 +14,7 @@ RUN zypper --non-interactive update              && \
            install --no-recommends                  \
                    cron                             \
                    curl                             \
+                   gcc                              \
                    git                              \
                    gpg2                             \
                    openssl                          \
@@ -34,7 +35,9 @@ RUN zypper --non-interactive update              && \
                            --user wheel          && \
     python3 -m pip install --force-reinstall        \
                  --upgrade                          \
-                 --user "ansible-core == 2.11.*" && \
+                 --user "ansible-core == 2.11.*"     \
+                        "ansible-lint == 5.4.0"     \
+                        "yamllint == 1.28.0"      && \
     rm -rf /root/.cache                             \
            /var/cache/zypp
 

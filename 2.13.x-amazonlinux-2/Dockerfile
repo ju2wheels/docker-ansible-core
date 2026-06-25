@@ -33,7 +33,9 @@ RUN yum upgrade -y                               && \
                            --user wheel          && \
     python3.8 -m pip install --force-reinstall      \
                  --upgrade                          \
-                 --user "ansible-core == 2.13.*" && \
+                 --user "ansible-core == 2.13.*"     \
+                        "ansible-lint == 6.12.2"     \
+                        "yamllint == 1.35.1"      && \
     rm -rf /root/.cache                             \
            /var/cache/yum
 

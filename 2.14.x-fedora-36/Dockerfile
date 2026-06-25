@@ -36,7 +36,9 @@ RUN dnf upgrade -y                               && \
                            --user wheel          && \
     python3 -m pip install --force-reinstall        \
                  --upgrade                          \
-                 --user "ansible-core == 2.14.*" && \
+                 --user "ansible-core == 2.14.*"     \
+                        "ansible-lint == 24.12.2"     \
+                        "yamllint == 1.38.0"      && \
     rm -rf /root/.cache                             \
            /var/cache/dnf
 

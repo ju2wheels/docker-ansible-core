@@ -41,7 +41,9 @@ RUN apt-get update                               && \
                            --user wheel          && \
     python3 -m pip install --force-reinstall        \
                  --upgrade                          \
-                 --user "ansible-core == 2.12.*" && \
+                 --user "ansible-core == 2.12.*"     \
+                        "ansible-lint == 24.2.3"     \
+                        "yamllint == 1.38.0"      && \
     rm -rf /root/.cache                             \
            /var/cache/apt/*
 
