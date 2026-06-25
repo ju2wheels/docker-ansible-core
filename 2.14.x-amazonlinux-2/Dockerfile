@@ -15,6 +15,7 @@ RUN yum upgrade -y                               && \
                    curl                             \
                    git                              \
                    gnupg2                           \
+                   make                             \
                    openssl                          \
                    python38                         \
                    python38-devel                   \

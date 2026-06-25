@@ -16,6 +16,7 @@ RUN dnf upgrade -y                               && \
                    git                              \
                    glibc-langpack-en                \
                    gnupg2                           \
+                   make                             \
                    openssl                          \
                    python3                          \
                    python3-devel                    \

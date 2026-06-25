@@ -15,6 +15,7 @@ RUN dnf upgrade -y                                                 && \
                    git                                                \
                    gnupg2-minimal                                     \
                    langpacks-en                                       \
+                   make                                               \
                    openssl                                            \
                    python3                                            \
                    python3-devel                                      \

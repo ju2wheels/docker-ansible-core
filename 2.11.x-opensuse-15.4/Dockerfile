@@ -17,6 +17,7 @@ RUN zypper --non-interactive update              && \
                    gcc                              \
                    git                              \
                    gpg2                             \
+                   make                             \
                    openssl                          \
                    python3                          \
                    python3-devel                    \

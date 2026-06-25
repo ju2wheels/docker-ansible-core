@@ -14,6 +14,7 @@ RUN yum upgrade -y                               && \
                    curl                             \
                    git                              \
                    gnupg2                           \
+                   make                             \
                    openssl                          \
                    python3                          \
                    python3-devel                    \

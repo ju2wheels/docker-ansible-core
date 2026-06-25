@@ -16,6 +16,7 @@ RUN apk upgrade --latest --update-cache          && \
             curl                                    \
             git                                     \
             gnupg                                   \
+            make                                    \
             openssh-client                          \
             openssl                                 \
             python3                                 \

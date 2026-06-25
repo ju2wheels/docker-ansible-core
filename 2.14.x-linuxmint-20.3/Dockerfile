@@ -25,6 +25,7 @@ RUN apt-get update                                && \
                        gnupg2                        \
                        locales                       \
                        locales-all                   \
+                       make                          \
                        openssh-client                \
                        openssl                       \
                        python3.9                     \
